@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Products } from '../products';
+import { PRODUCTS } from '../products';
+import { CalculatorService } from '../calculator.service';
 
 @Component({
   selector: 'app-shop',
@@ -7,11 +8,24 @@ import { Products } from '../products';
   styleUrls: ['./shop.component.scss']
 })
 export class ShopComponent implements OnInit {
-  products = Products;
+  products = PRODUCTS;
+  AddedProducts=[];
   
-  constructor() { }
+  constructor(
+    public calculatorService : CalculatorService
+  ) { }
 
   ngOnInit() {
+    this.AddedProducts = this.calculatorService.getAddedProducts();
+
+  }
+
+  toggleAddProduct(product) {
+    this.calculatorService.addProduct(product);
+  }
+
+  toggleRemoveProduct(product) {
+    this.calculatorService.removeProduct(product);
   }
 
 }

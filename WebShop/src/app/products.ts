@@ -1,6 +1,6 @@
-import { Product } from './api';
+import { Products } from './api';
 
-export const Products: Product[] = [
+export const PRODUCTS: Products[] = [
     {
     id: 'GR1',
     name: 'Green tea',
