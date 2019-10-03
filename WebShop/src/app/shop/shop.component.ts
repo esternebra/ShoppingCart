@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PRODUCTS } from '../products';
 import { CalculatorService } from '../calculator.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-shop',
@@ -9,14 +10,16 @@ import { CalculatorService } from '../calculator.service';
 })
 export class ShopComponent implements OnInit {
   products = PRODUCTS;
-  AddedProducts=[];
+  addedProducts=[];
+  
   
   constructor(
-    public calculatorService : CalculatorService
+    public calculatorService : CalculatorService,
+    public router : Router
   ) { }
 
   ngOnInit() {
-    this.AddedProducts = this.calculatorService.getAddedProducts();
+    this.addedProducts = this.calculatorService.getAddedProducts();
 
   }
 
@@ -28,4 +31,8 @@ export class ShopComponent implements OnInit {
     this.calculatorService.removeProduct(product);
   }
 
+  goToCheckout(){
+    this.router.navigate(['/checkout']);
+    console.log('Welcome to the Checkout Cart')
+  }
 }

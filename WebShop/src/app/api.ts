@@ -3,4 +3,6 @@ export class Products{
     name: string;
     price: number;
     image: string;
+    countered: number;
+    offer: number;
 };

@@ -10,20 +10,22 @@
                 <a class="nav-link" href="#">Products <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Cart</a>
+                <a class="nav-link" (click)='goToCheckout()'>Cart</a>
             </li>
         </ul>
     </div>
 </nav>
 
-<div  *ngFor="let product of products" class="card" style="width: 18rem;">
-    <img src="..." class="card-img-top" alt="...">
-    <div class="card-body">
-        <h5 class="card-title">{{product.name}}</h5>
-        <p class="card-text">{{product.price}}</p>
-        <button class="btn btn-primary" (click)="toggleAddProduct(product)">Add one</button>
-        <p>{{AddedProducts.length}}</p>
-        <button class="btn btn-primary" (click)="toggleRemoveProduct(product)">Delete one</button>
+<div class="row">
+    <div class="col-sm-3" *ngFor="let product of products" class="card text-center" style="width: 18rem;">
+        <img src={{product.image}} class="card-img-top"  alt="Imagen del producto" height="350px" width="250px">
+        <div class="card-body">
+            <h5 class="card-title">{{product.name}}</h5>
+            <p class="card-text">{{product.price}}</p>
+            <button class="btn btn-outline-success" (click)="toggleAddProduct(product)">+</button>
+            <p>{{product.countered}}</p>
+            <button class="btn btn-outline-danger" (click)="toggleRemoveProduct(product)">-</button>
 
+        </div>
     </div>
 </div>
