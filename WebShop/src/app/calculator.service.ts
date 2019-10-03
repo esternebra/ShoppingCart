@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { PRODUCTS } from './products';
+import { Products } from './api';
 
 // import { identifierModuleUrl } from '@angular/compiler';
 
@@ -20,6 +21,30 @@ export class CalculatorService {
       console.log('Nuevo producto añadido al carrito: ' ,product.name);
     }else{
       product.countered++;
+      if(product.id == 'GR1'){
+        if(product.countered >= 2 && !(product.countered  % 2 == 0)){
+          product.offer=((product.countered/2)*product.price + (product.price*0.5));
+        }else if(product.countered  % 2 == 0){
+          product.offer=(product.countered/2)*product.price;
+          console.log('Se ha aplicado una Oferta especial a tu producto',product.name , '2 x 1' )
+        }else{
+          product.offer=product.countered*product.price;
+        }
+      }else if(product.id == 'SR1'){
+        if(product.countered >= 3){
+          product.offer=product.countered*4.5;
+          console.log('Se ha aplicado una Oferta especial a tu producto',product.name , 'Ahora su valor unitario es de 4.5$.' )
+        }else{
+          product.offer=product.countered*product.price;
+        }
+      }else{
+        if( product.countered >= 3){
+          product.offer=product.countered*(product.price*0.66);
+          console.log('Se ha aplicado una Oferta especial a tu producto',product.name , 'Se aplicará un descuento del 33% al precio total.' )
+        }else{
+          product.offer=product.countered*product.price;
+        }
+      }
     };
     console.log('El producto' ,product.name, 'ha sido añadido a la cesta. Actualmente tu cesta está así: ',this.addedProducts);
   }
@@ -37,26 +62,4 @@ export class CalculatorService {
   getAddedProducts(){
     return this.addedProducts;
   }
-
-  // getOffer(addedProducts){
-  //   if(addedProducts.id == 'GR1'){
-  //     if(addedProducts.countered & 1){
-  //       addedProducts.offer=(addedProducts.countered/2)*addedProducts.price;
-  //     }else{
-  //       addedProducts.offer=addedProducts.countered*addedProducts.price;
-  //     }
-  //   }else if(addedProducts.id == 'SR1'){
-  //     if(addedProducts.countered >= 3){
-  //       addedProducts.offer=addedProducts.countered*4.5;
-  //     }else{
-  //       addedProducts.offer=addedProducts.countered*addedProducts.price;
-  //     }
-  //   }else{
-  //     if( addedProducts.countered >= 3){
-  //       addedProducts.offer=addedProducts.countered*(addedProducts.price*0.66);
-  //     }else{
-  //       addedProducts.offer=addedProducts.countered*addedProducts.price;
-  //     }
-  //   }
-  // }
 }

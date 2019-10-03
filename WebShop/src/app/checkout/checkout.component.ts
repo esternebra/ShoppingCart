@@ -27,28 +27,7 @@ export class CheckoutComponent implements OnInit {
 
   getAddedProducts(){
     return this.addedProducts;
-  }
 
-  // applyOffer(addedProducts){
-  //   if(addedProducts.id == 'GR1'){
-  //     if(addedProducts.countered & 1){
-  //       addedProducts.offer=(addedProducts.countered/2)*addedProducts.price;
-  //     }else{
-  //       addedProducts.offer=addedProducts.countered*addedProducts.price;
-  //     }
-  //   }else if(addedProducts.id == 'SR1'){
-  //     if(addedProducts.countered >= 3){
-  //       addedProducts.offer=addedProducts.countered*4.5;
-  //     }else{
-  //       addedProducts.offer=addedProducts.countered*addedProducts.price;
-  //     }
-  //   }else{
-  //     if( addedProducts.countered >= 3){
-  //       addedProducts.offer=addedProducts.countered*(addedProducts.price*0.66);
-  //     }else{
-  //       addedProducts.offer=addedProducts.countered*addedProducts.price;
-  //     }
-  //   }
-  // }
+  }
     
 }
