@@ -23,11 +23,11 @@ export class ShopComponent implements OnInit {
 
   }
 
-  toggleAddProduct(product) {
+  AddProduct(product) {
     this.calculatorService.addProduct(product);
   }
 
-  toggleRemoveProduct(product) {
+  RemoveProduct(product) {
     this.calculatorService.removeProduct(product);
   }
 

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { PRODUCTS } from '../products';
 import { CalculatorService } from '../calculator.service';
 import { Router } from '@angular/router';
+import { Products } from '../api';
 @Component({
   selector: 'app-checkout',
   templateUrl: './checkout.component.html',
@@ -11,6 +12,7 @@ export class CheckoutComponent implements OnInit {
 
   addedProducts=[];
   products = PRODUCTS;
+ 
 
   constructor(
     public calculatorService : CalculatorService,
@@ -30,5 +32,6 @@ export class CheckoutComponent implements OnInit {
     return this.addedProducts;
 
   }
+
     
 }

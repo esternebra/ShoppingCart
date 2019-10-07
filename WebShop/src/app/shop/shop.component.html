@@ -22,9 +22,9 @@
         <div class="card-body">
             <h5 class="card-title">{{product.name}}</h5>
             <p class="card-text">£{{product.price}}</p>
-            <button class="btn btn-outline-success" (click)="toggleAddProduct(product)">+</button>
+            <button class="btn btn-outline-success" (click)="AddProduct(product)">+</button>
             <p>{{product.countered}}</p>
-            <button class="btn btn-outline-danger" (click)="toggleRemoveProduct(product)">-</button>
+            <button class="btn btn-outline-danger" (click)="RemoveProduct(product)">-</button>
 
         </div>
     </div>
