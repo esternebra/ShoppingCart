@@ -19,7 +19,8 @@ export class CheckoutComponent implements OnInit {
 
   ngOnInit() {
     this.addedProducts = this.calculatorService.getAddedProducts();
-    }
+
+  }
   goToShop(){
     this.router.navigate(['/shop']);
     console.log('Welcome to the Shop')
